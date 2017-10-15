@@ -1,8 +1,12 @@
 <template>
   <section>
-    <p v-for="record in records">
-      <span>{{ record.fields.address  }}</span>
-    </p>
+    <section v-for="record in records">
+      <p>{{ record.fields.address  }}</p>
+      <span>libres : {{ record.fields.available_bike_stands }}</span>
+      <span> - </span>
+      <span> disponibles : {{ record.fields.available_bikes }}</span>
+      <span v-if="record.fields.status === 'CLOSED'">station fermée</span>
+    </section>
   </section>
 </template>
 

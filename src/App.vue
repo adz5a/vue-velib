@@ -11,6 +11,9 @@
     <List 
          :title="title"
          :records="records" />
+    <section v-if="didSearch">
+      {{ records.length }} / {{ hits }}
+    </section>
     <section v-if="canLoadMore">
       <input 
              value="+"
@@ -66,7 +69,8 @@ export default {
     },
     loadMore () {
       refresh({
-        start: this.records.length
+        start: this.records.length,
+        q: this.query
       })
         .then( response => this.onResponse(response) );
     },

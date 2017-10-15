@@ -27,8 +27,10 @@ export const validateRecord = struct({
   fields: struct({
     address: string,
     available_bike_stands: number,
+    available_bikes: number,
     bike_stands: number,
     last_update: string,
+    status: string // should be enum
   })
 });
 
