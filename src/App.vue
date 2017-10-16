@@ -24,6 +24,7 @@
   </div>
 </template>
 
+
 <script>
 import QueryForm from "@components/Form";
 import List from "@components/List";
@@ -64,8 +65,8 @@ export default {
   methods: {
     onResponse ( response ) {
       console.log("reponse received");
-      this.records = this.records.concat(response.records);
-      this.hits = response.nhits; 
+      response.records.forEach( r => this.records.push(r) );
+      this.hits = response.nhits;  
     },
     loadMore () {
       refresh({
