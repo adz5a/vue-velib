@@ -24,7 +24,7 @@
         </section>
       </section>
       <section>
-        lol
+        <Saved />
       </section>
     </section>
   </div>
@@ -33,13 +33,15 @@
 <script>
 import QueryForm from "@components/Form";
 import List from "@components/List";
+import Saved from "@components/Saved";
 import { refresh } from "@components/api";
 
 export default {
   name: "app",
   components: {
     QueryForm,
-    List
+    List,
+    Saved
   },
   data() {
     return {
