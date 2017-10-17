@@ -1,25 +1,31 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <QueryForm
+    <section class="container">
+      <section>
+        <QueryForm
          v-if="!didSearch"
          :onSearch="onSearch" />
-    <section v-if="didSearch">
-      <h3>Recherche autour de :</h3>
-      <h1>{{ query }}</h1>
-    </section>
-    <List 
-         :title="title"
-         :records="records" />
-    <section v-if="didSearch">
-      {{ records.length }} / {{ hits }}
-    </section>
-    <section v-if="canLoadMore">
-      <input 
-             value="+"
-             type="button"
-             v-on:click="loadMore">
-      </input>
+        <section v-if="didSearch">
+          <h3>Recherche autour de :</h3>
+          <h1>{{ query }}</h1>
+        </section>
+        <List 
+                 :title="title"
+                 :records="records" />
+        <section v-if="didSearch">
+          {{ records.length }} / {{ hits }}
+        </section>
+        <section v-if="canLoadMore">
+          <input 
+                 value="+"
+                 type="button"
+                 v-on:click="loadMore"/>
+        </section>
+      </section>
+      <section>
+        lol
+      </section>
     </section>
   </div>
 </template>
@@ -30,7 +36,7 @@ import List from "@components/List";
 import { refresh } from "@components/api";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     QueryForm,
     List
@@ -87,11 +93,16 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 </style>
